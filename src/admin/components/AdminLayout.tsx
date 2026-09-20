@@ -25,6 +25,8 @@ import {
   X,
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+// The bundler resolves this stylesheet, but TypeScript does not have a CSS module declaration.
+// @ts-expect-error CSS is imported for its side effects.
 import '../admin.css';
 
 const navItems = [
