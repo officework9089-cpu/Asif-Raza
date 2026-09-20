@@ -3,8 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import App from './App.tsx';
 import AdminApp from './admin/AdminApp.tsx';
+<<<<<<< HEAD
 // CSS is loaded by the bundler at runtime; TypeScript has no declaration for it.
 // @ts-expect-error CSS side-effect imports are handled by Vite.
+=======
+>>>>>>> e0b66196c289ca26206af72a55e67959e28008a7
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
