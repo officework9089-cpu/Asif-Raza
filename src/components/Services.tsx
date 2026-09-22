@@ -278,7 +278,7 @@ export default function Services() {
             />
 
             {/* Dialog */}
-            <div className="relative z-10 w-full max-w-lg bg-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl scale-100 transition-all duration-300 text-left my-auto max-h-[90vh] overflow-y-auto">
+            <div className="relative z-10 w-full max-w-lg bg-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl scale-100 transition-all duration-300 text-left my-auto max-h-[90vh] overflow-y-auto scrollbar-none">
 
               {/* Close */}
               <button

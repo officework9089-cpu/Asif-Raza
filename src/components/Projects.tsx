@@ -55,7 +55,7 @@ function ProjectCard({
       data-project-card
       className="
         group relative flex shrink-0 flex-col justify-between overflow-hidden
-        w-[280px] sm:w-[320px] md:w-[360px] lg:w-[380px] xl:w-[390px]
+        w-70 sm:w-[320px] md:w-90 lg:w-95 xl:w-97.5
         rounded-2xl border border-slate-900 bg-slate-900/40
         transition-all duration-300
         hover:border-cyan-500/30 hover:bg-slate-900/60
@@ -651,7 +651,7 @@ export default function Projects() {
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 lg:mb-16">
           <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
             Featured{" "}
-            <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-400 via-teal-400 to-indigo-400 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
@@ -688,9 +688,10 @@ export default function Projects() {
               className="
                 flex items-center gap-1.5 overflow-x-auto whitespace-nowrap
                 pr-8 scroll-smooth
-                [scrollbar-width:none]
+                scrollbar-none
                 [-ms-overflow-style:none]
                 [&::-webkit-scrollbar]:hidden
+
               "
             >
               {categories.map((category) => (
@@ -714,7 +715,7 @@ export default function Projects() {
               ))}
             </div>
 
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-slate-900/90 to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-linear-to-l from-slate-900/90 to-transparent" />
           </div>
 
           {/* Search */}
@@ -760,12 +761,12 @@ export default function Projects() {
               <div
                 key={item}
                 className="
-                  w-[280px] shrink-0 animate-pulse overflow-hidden rounded-2xl
+                  w-70 shrink-0 animate-pulse overflow-hidden rounded-2xl
                   border border-slate-900 bg-slate-900/40
-                  sm:w-[320px] md:w-[360px] lg:w-[380px]
+                  sm:w-[320px] md:w-90 lg:w-95
                 "
               >
-                <div className="aspect-[16/10] bg-slate-900" />
+                <div className="aspect-16/10 bg-slate-900" />
 
                 <div className="space-y-4 p-5 sm:p-6">
                   <div className="h-5 w-3/4 rounded bg-slate-800" />
@@ -795,9 +796,9 @@ export default function Projects() {
           >
             {/* Fade edges */}
 
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent sm:w-16 lg:w-24" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-linear-to-r from-slate-950 via-slate-950/70 to-transparent sm:w-16 lg:w-24" />
 
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-slate-950 via-slate-950/70 to-transparent sm:w-16 lg:w-24" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-linear-to-l from-slate-950 via-slate-950/70 to-transparent sm:w-16 lg:w-24" />
 
             {/* Track */}
 
@@ -919,7 +920,7 @@ export default function Projects() {
                 <div className="overflow-y-auto custom-scrollbar flex-1">
 
                   {/* MODAL BANNER */}
-                  <div className="relative aspect-[16/9] w-full bg-slate-900/50 overflow-hidden">
+                  <div className="relative aspect-video w-full bg-slate-900/50 overflow-hidden">
                     {selectedProject.image ? (
                       <img
                         src={selectedProject.image}
@@ -935,7 +936,7 @@ export default function Projects() {
                     )}
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
                     {/* Banner Content */}
                     <div className="absolute bottom-6 left-6 right-6">
@@ -1118,7 +1119,7 @@ export default function Projects() {
                         className="
                       px-4
                       py-2
-                      bg-gradient-to-r
+                      bg-linear-to-r
                       from-cyan-500
                       to-blue-600
                       hover:from-cyan-400

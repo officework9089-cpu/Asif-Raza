@@ -1,40 +1,83 @@
 import { useState } from 'react';
-import { timelineData } from '../data';
 import asifAvatar from '../assets/images/asif_avatar_1781735629670.jpg';
 
+// Define explicit types
+type TabType = 'journey' | 'certifications' | 'goals';
+
+interface TimelineItem {
+  year: string;
+  role: string;
+  company: string;
+  desc: string;
+  icon: string;
+}
+
+interface CertificationItem {
+  title: string;
+  issuer: string;
+  date: string;
+}
+
+interface GoalItem {
+  title: string;
+  desc: string;
+}
+
+// Extracted static datasets outside of the component to avoid re-allocation on re-renders
+const JOURNEY_TIMELINE: TimelineItem[] = [
+  {
+    year: '2026',
+    role: 'Full Stack Engineer (Enterprise Level)',
+    company: 'Karachi Freelance Network',
+    desc: 'Developing fully customized database wrappers, API microservices and secure consumer dashboards. Scaling legacy codebases for international optimization.',
+    icon: 'fa-rocket'
+  },
+  {
+    year: '2025',
+    role: 'Software Web Developer Specialist',
+    company: 'Client Base & Agencies',
+    desc: 'Built production-ready platforms including Autoboli Vehicle marketplace (handling direct consumer listings) and Airmont Publishing portal (optimized database search arrays).',
+    icon: 'fa-layer-group'
+  },
+  {
+    year: '2024',
+    role: 'Foundational Studies & Early Engineering',
+    company: 'Academic Coding Systems',
+    desc: 'Mastered standard software loops, dynamic MySQL schemes, C# classes, Java APIs, and structural CSS. Delivered 10 client products before launching professional career.',
+    icon: 'fa-book-open'
+  }
+];
+
+const CERTIFICATIONS_LIST: CertificationItem[] = [
+  { title: 'Full-Stack Software Professional', issuer: 'Karachi Software Hub', date: '2025' },
+  { title: 'Advanced Backend Engineering with Laravel & PHP', issuer: 'Web Technology Council', date: '2024' },
+  { title: 'Information Security & Relational SQL Architecture', issuer: 'Systems Database Consortium', date: '2025' },
+  { title: 'Python Machine Learning & NumPy Mathematics', issuer: 'Data Sciences Inst.', date: '2025' }
+];
+
+const GOALS_LIST: GoalItem[] = [
+  {
+    title: 'Full-Stack Cloud Automation',
+    desc: 'Implement Dockerized environments, automated CI/CD micro pipelines, and serverless Cloud deployments for scalable product systems.'
+  },
+  {
+    title: 'AI & Intelligent Interfaces Integration',
+    desc: 'Expand Django APIs to serve advanced deep recommendation models, NLP pipelines, and automated multi-agent LLM systems reliably.'
+  },
+  {
+    title: 'High Performance Database Sharding',
+    desc: 'Pioneer advanced query structures, high-efficiency horizontal partitioning, and caching paradigms to support multi-million database reads.'
+  }
+];
+
+const TABS: { id: TabType; label: string }[] = [
+  { id: 'journey', label: 'Timeline Journey' },
+  { id: 'certifications', label: 'Certificates' },
+  { id: 'goals', label: 'Engineering Goals' }
+];
+
 export default function About() {
-  const [activeTab, setActiveTab] = useState<'journey' | 'certifications' | 'goals'>('journey');
-
-  const journeyTimeline = [
-    {
-      year: '2026',
-      role: 'Full Stack Engineer (Enterprise Level)',
-      company: 'Karachi Freelance Network',
-      desc: 'Developing fully customized database wrappers, API microservices and secure consumer dashboards. Scaling legacy codebases for international optimization.',
-      icon: 'fa-rocket'
-    },
-    {
-      year: '2025',
-      role: 'Software Web Developer Specialist',
-      company: 'Client Base & Agencies',
-      desc: 'Built production-ready platforms including Autoboli Vehicle marketplace (handling direct consumer listings) and Airmont Publishing portal (optimized database search arrays).',
-      icon: 'fa-layer-group'
-    },
-    {
-      year: '2024',
-      role: 'Foundational Studies & Early Engineering',
-      company: 'Academic Coding Systems',
-      desc: 'Mastered standard software loops, dynamic MySQL schemes, C# classes, Java APIs, and structural CSS. Delivered 10 client products before launching professional career.',
-      icon: 'fa-book-open'
-    }
-  ];
-
-  const certificationsList = [
-    { title: 'Full-Stack Software Professional', issuer: 'Karachi Software Hub', date: '2025' },
-    { title: 'Advanced Backend Engineering with Laravel & PHP', issuer: 'Web Technology Council', date: '2024' },
-    { title: 'Information Security & Relational SQL Architecture', issuer: 'Systems Database Consortium', date: '2025' },
-    { title: 'Python Machine Learning & NumPy Mathematics', issuer: 'Data Sciences Inst.', date: '2025' }
-  ];
+  const [activeTab, setActiveTab] = useState<TabType>('journey');
 
   return (
     <section id="about" className="about py-24 bg-slate-950/40 relative">
@@ -60,8 +103,9 @@ export default function About() {
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-950">
                 <img 
                   src={asifAvatar} 
-                  alt="Asif Raza Senior Developer Render" 
+                  alt="Asif Raza - Senior Developer Profile" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-4 rounded-xl border border-slate-800">
@@ -72,7 +116,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Micro details panel */}
+            {/* Micro Details Panel */}
             <div className="grid grid-cols-2 gap-4 bg-slate-900/40 p-5 rounded-2xl border border-slate-900">
               <div className="space-y-1">
                 <span className="text-xs text-slate-500 font-mono">LOCATION</span>
@@ -83,14 +127,23 @@ export default function About() {
                 <p className="text-sm font-semibold text-white">1+ Years Professional</p>
               </div>
               <div className="space-y-1">
-                <span className="text-xs text-slate-500 font-mono">STATUS</span>
+                <span className="text-xs text-slate-500 font-mono mr-2">STATUS</span>
                 <p className="text-sm font-semibold text-green-400 inline-flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></span> Open to Contract
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  Open to Contract
                 </p>
               </div>
               <div className="space-y-1">
                 <span className="text-xs text-slate-500 font-mono">EMAIL</span>
-                <p className="text-xs font-semibold text-slate-300">AsifRaza7997@gmail.com</p>
+                <a 
+                  href="mailto:AsifRaza7997@gmail.com" 
+                  className="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors block truncate"
+                >
+                  AsifRaza7997@gmail.com
+                </a>
               </div>
             </div>
           </div>
@@ -108,83 +161,100 @@ export default function About() {
             </div>
 
             {/* Professional Tabs Buttons */}
-            <div className="flex overflow-x-auto scrollbar-hide border-b border-slate-800 -mx-4 px-4 sm:mx-0 sm:px-0 whitespace-nowrap">
-              {(['journey', 'certifications', 'goals'] as const).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`py-3 px-6 text-sm font-semibold border-b-2 transition-all duration-300 capitalize flex-shrink-0 ${
-                    activeTab === tab 
-                      ? 'border-cyan-400 text-white font-bold' 
-                      : 'border-transparent text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  {tab === 'journey' ? 'Timeline Journey' : tab === 'certifications' ? 'Certificates' : 'Engineering Goals'}
-                </button>
-              ))}
+            <div 
+              role="tablist" 
+              aria-label="About sections"
+              className="flex overflow-x-auto scrollbar-hide border-b border-slate-800 -mx-4 px-4 sm:mx-0 sm:px-0 whitespace-nowrap"
+            >
+              {TABS.map((tab) => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    id={`tab-${tab.id}`}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls={`panel-${tab.id}`}
+                    tabIndex={isActive ? 0 : -1}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`py-3 px-6 text-sm font-semibold border-b-2 transition-all duration-300 capitalize flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                      isActive 
+                        ? 'border-cyan-400 text-white font-bold' 
+                        : 'border-transparent text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Dynamic Tab Contents */}
             <div className="bg-slate-900/20 p-6 rounded-2xl border border-slate-900 min-h-[300px] flex flex-col justify-start">
               
-              {activeTab === 'journey' && (
-                <div className="space-y-6">
-                  {journeyTimeline.map((item, idx) => (
-                    <div key={idx} className="flex gap-4 relative group">
-                      {idx !== journeyTimeline.length - 1 && (
-                        <div className="absolute left-6 top-8 bottom-[-24px] w-0.5 bg-slate-800"></div>
-                      )}
-                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-cyan-400/50 flex items-center justify-center text-cyan-400 text-sm transition-all duration-300">
-                        <i className={`fas ${item.icon}`}></i>
-                      </div>
-                      <div className="space-y-1">
-                        <span className="text-xs font-mono font-bold text-cyan-400">{item.year}</span>
-                        <h4 className="text-md font-bold text-white group-hover:text-cyan-300 transition-colors duration-200">{item.role}</h4>
-                        <p className="text-xs text-slate-500 font-semibold">{item.company}</p>
-                        <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
-                      </div>
+              {/* Journey Tab */}
+              <div
+                id="panel-journey"
+                role="tabpanel"
+                aria-labelledby="tab-journey"
+                hidden={activeTab !== 'journey'}
+                className="space-y-6 animate-fadeIn"
+              >
+                {JOURNEY_TIMELINE.map((item, idx) => (
+                  <div key={idx} className="flex gap-4 relative group">
+                    {idx !== JOURNEY_TIMELINE.length - 1 && (
+                      <div className="absolute left-6 top-8 bottom-[-24px] w-0.5 bg-slate-800"></div>
+                    )}
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-cyan-400/50 flex items-center justify-center text-cyan-400 text-sm transition-all duration-300">
+                      <i className={`fas ${item.icon}`} aria-hidden="true"></i>
                     </div>
-                  ))}
-                </div>
-              )}
+                    <div className="space-y-1">
+                      <span className="text-xs font-mono font-bold text-cyan-400">{item.year}</span>
+                      <h4 className="text-md font-bold text-white group-hover:text-cyan-300 transition-colors duration-200">{item.role}</h4>
+                      <p className="text-xs text-slate-500 font-semibold">{item.company}</p>
+                      <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-              {activeTab === 'certifications' && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {certificationsList.map((cert, idx) => (
-                    <div key={idx} className="p-4 bg-slate-900/60 rounded-xl border border-slate-800/80 hover:border-cyan-500/30 transition-all duration-200 text-left">
-                      <div className="font-mono text-xs text-cyan-400 font-bold mb-1">{cert.date}</div>
-                      <h4 className="text-sm font-bold text-white leading-snug mb-1">{cert.title}</h4>
-                      <p className="text-xs text-slate-500">{cert.issuer}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
+              {/* Certifications Tab */}
+              <div
+                id="panel-certifications"
+                role="tabpanel"
+                aria-labelledby="tab-certifications"
+                hidden={activeTab !== 'certifications'}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fadeIn"
+              >
+                {CERTIFICATIONS_LIST.map((cert, idx) => (
+                  <div key={idx} className="p-4 bg-slate-900/60 rounded-xl border border-slate-800/80 hover:border-cyan-500/30 transition-all duration-200 text-left">
+                    <div className="font-mono text-xs text-cyan-400 font-bold mb-1">{cert.date}</div>
+                    <h4 className="text-sm font-bold text-white leading-snug mb-1">{cert.title}</h4>
+                    <p className="text-xs text-slate-500">{cert.issuer}</p>
+                  </div>
+                ))}
+              </div>
 
-              {activeTab === 'goals' && (
-                <div className="space-y-4">
-                  <div className="flex gap-3 items-start">
-                    <div className="w-5 h-5 rounded-full bg-cyan-400/10 text-cyan-400 flex items-center justify-center mt-0.5"><i className="fas fa-check text-[10px]"></i></div>
+              {/* Goals Tab */}
+              <div
+                id="panel-goals"
+                role="tabpanel"
+                aria-labelledby="tab-goals"
+                hidden={activeTab !== 'goals'}
+                className="space-y-4 animate-fadeIn"
+              >
+                {GOALS_LIST.map((goal, idx) => (
+                  <div key={idx} className="flex gap-3 items-start">
+                    <div className="w-5 h-5 rounded-full bg-cyan-400/10 text-cyan-400 flex items-center justify-center mt-0.5 flex-shrink-0">
+                      <i className="fas fa-check text-[10px]" aria-hidden="true"></i>
+                    </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white">Full-Stack Cloud Automation</h4>
-                      <p className="text-xs text-slate-400">Implement Dockerized environments, automated CI/CD micro pipelines, and serverless Cloud deployments for scalable product systems.</p>
+                      <h4 className="text-sm font-bold text-white">{goal.title}</h4>
+                      <p className="text-xs text-slate-400 mt-0.5">{goal.desc}</p>
                     </div>
                   </div>
-                  <div className="flex gap-3 items-start">
-                    <div className="w-5 h-5 rounded-full bg-cyan-400/10 text-cyan-400 flex items-center justify-center mt-0.5"><i className="fas fa-check text-[10px]"></i></div>
-                    <div>
-                      <h4 className="text-sm font-bold text-white font-sans">AI & Intelligent Interfaces Integration</h4>
-                      <p className="text-xs text-slate-400">Expand Django APIs to serve advanced deep recommendation models, NLP pipelines, and automated multi-agent LLM systems reliably.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <div className="w-5 h-5 rounded-full bg-cyan-400/10 text-cyan-400 flex items-center justify-center mt-0.5"><i className="fas fa-check text-[10px]"></i></div>
-                    <div>
-                      <h4 className="text-sm font-bold text-white">High Performance Database Sharding</h4>
-                      <p className="text-xs text-slate-400">Pioneer advanced query structures, high-efficiency horizontal partitioning, and caching paradigms to support multi-million database reads.</p>
-                    </div>
-                  </div>
-                </div>
-              )}
+                ))}
+              </div>
 
             </div>
           </div>
