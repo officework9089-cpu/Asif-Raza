@@ -110,7 +110,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             <div className="space-y-2.5 text-xs font-mono text-slate-400 print:text-slate-800 bg-slate-900/30 p-4 rounded-xl border border-slate-900 print:bg-slate-100 print:border-slate-200">
               <div className="flex items-center gap-2">
                 <i className="fas fa-envelope text-cyan-400 w-4"></i>
-                <a href="mailto:AsifRaza7997@gmail.com" className="hover:underline">AsifRaza7997@gmail.com</a>
+                <a href="mailto:razaasif7997@gmail.com" className="hover:underline">razaasif7997@gmail.com</a>
               </div>
               <div className="flex items-center gap-2">
                 <i className="fas fa-phone-alt text-cyan-400 w-4"></i>
@@ -221,7 +221,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
         {/* Footer actions */}
         <div className="px-6 py-4 border-t border-slate-900 bg-slate-950 flex items-center justify-between text-xs print:hidden">
-          <p className="text-slate-500 font-mono text-[10px]">Verify details securely via asifraza7997@gmail.com</p>
+          <p className="text-slate-500 font-mono text-[10px]">Verify details securely via razaasif7997@gmail.com</p>
           <button
             onClick={onClose}
             className="px-4 py-2 bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-lg text-slate-300 font-semibold"

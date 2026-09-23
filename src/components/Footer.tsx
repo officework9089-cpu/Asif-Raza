@@ -50,7 +50,7 @@ export default function Footer({ onNavigate }: FooterProps) {
     },
     {
       name: 'Email',
-      href: 'mailto:AsifRaza7997@gmail.com',
+      href: 'mailto:razaasif7997@gmail.com',
       icon: 'fas fa-envelope',
       hoverColor: 'hover:text-indigo-400 hover:border-indigo-500/40',
     },
@@ -138,10 +138,10 @@ export default function Footer({ onNavigate }: FooterProps) {
             <p className="text-[11px] font-mono text-slate-500">
               Direct Contact:{' '}
               <a
-                href="mailto:AsifRaza7997@gmail.com"
+                href="mailto:razaasif7997@gmail.com"
                 className="text-cyan-400 hover:underline block sm:inline mt-1 sm:mt-0"
               >
-                AsifRaza7997@gmail.com
+                razaasif7997@gmail.com
               </a>
             </p>
           </div>

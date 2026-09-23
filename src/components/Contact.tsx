@@ -225,8 +225,8 @@ export default function Contact() {
             absolute
             -top-40
             -left-40
-            w-[420px]
-            h-[420px]
+            w-105
+            h-105
             rounded-full
             bg-cyan-500/5
             blur-[120px]
@@ -238,8 +238,8 @@ export default function Contact() {
             absolute
             -bottom-40
             -right-40
-            w-[450px]
-            h-[450px]
+            w-112.5
+            h-112.5
             rounded-full
             bg-indigo-500/5
             blur-[120px]
@@ -252,7 +252,7 @@ export default function Contact() {
             inset-0
             opacity-[0.025]
             bg-[linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)]
-            bg-[size:60px_60px]
+            bg-size-[60px_60px]
           "
         />
       </div>
@@ -279,7 +279,7 @@ export default function Contact() {
             Secure{" "}
             <span
               className="
-                bg-gradient-to-r
+                bg-linear-to-r
                 from-cyan-400
                 via-emerald-400
                 to-indigo-500
@@ -296,7 +296,7 @@ export default function Contact() {
             className="
               w-12
               h-1
-              bg-gradient-to-r
+              bg-linear-to-r
               from-cyan-400
               to-indigo-500
               mx-auto
@@ -470,7 +470,7 @@ export default function Contact() {
                       items-center
                       justify-center
                       text-sm
-                      flex-shrink-0
+                      shrink-0
                     "
                   >
                     <i className="fas fa-envelope" />

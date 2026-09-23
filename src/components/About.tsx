@@ -27,23 +27,41 @@ interface GoalItem {
 const JOURNEY_TIMELINE: TimelineItem[] = [
   {
     year: '2026',
-    role: 'Full Stack Engineer (Enterprise Level)',
-    company: 'Karachi Freelance Network',
-    desc: 'Developing fully customized database wrappers, API microservices and secure consumer dashboards. Scaling legacy codebases for international optimization.',
+    role: 'Lead Full Stack Systems Developer',
+    company: 'Karachi Freelance Group / Stallion Tech Contracts',
+    desc: 'Developing modern full-stack applications using React.js, Laravel, PHP, MySQL, Supabase, REST APIs and Tailwind CSS. Building secure dashboards, authentication systems, CRUD platforms, API integrations and scalable database-driven solutions.',
     icon: 'fa-rocket'
   },
+
+  {
+    year: '2026',
+    role: 'Full Stack Developer',
+    company: 'Nexaura',
+    desc: 'Worked on production web applications, contributing to frontend and backend development, database integration, responsive interfaces and practical full-stack solutions.',
+    icon: 'fa-code'
+  },
+
   {
     year: '2025',
-    role: 'Software Web Developer Specialist',
-    company: 'Client Base & Agencies',
-    desc: 'Built production-ready platforms including Autoboli Vehicle marketplace (handling direct consumer listings) and Airmont Publishing portal (optimized database search arrays).',
+    role: 'Junior Full Stack Developer',
+    company: 'DA Prime Solution',
+    desc: 'Developed web applications using PHP, Laravel, JavaScript, MySQL and Bootstrap, including CRUD systems, admin dashboards, authentication, APIs and responsive user interfaces.',
     icon: 'fa-layer-group'
   },
+
+  {
+    year: '2025',
+    role: 'Full Stack Developer Intern',
+    company: 'Salesground.ai',
+    desc: 'Worked on web application development and gained practical experience with frontend interfaces, backend functionality, databases, APIs and full-stack development workflows.',
+    icon: 'fa-laptop-code'
+  },
+
   {
     year: '2024',
-    role: 'Foundational Studies & Early Engineering',
-    company: 'Academic Coding Systems',
-    desc: 'Mastered standard software loops, dynamic MySQL schemes, C# classes, Java APIs, and structural CSS. Delivered 10 client products before launching professional career.',
+    role: 'Software Development & Technical Foundation',
+    company: 'Academic & Personal Projects',
+    desc: 'Built a strong foundation in programming, databases and web development through hands-on projects using PHP, JavaScript, Python, C#, Java, MySQL, HTML and CSS.',
     icon: 'fa-book-open'
   }
 ];
@@ -86,7 +104,7 @@ export default function About() {
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-sans tracking-tight">
-            About <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Me</span>
+            About <span className="bg-linear-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Me</span>
           </h2>
           <div className="w-12 h-1 bg-cyan-400 mx-auto mt-4 rounded"></div>
           <p className="text-slate-400 mt-4 text-md">
@@ -107,7 +125,7 @@ export default function About() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-4 rounded-xl border border-slate-800">
                   <div className="font-bold text-white text-md">Asif Raza</div>
                   <div className="text-xs text-cyan-400 mb-1">Karachi, Pakistan (GMT +5)</div>
@@ -139,10 +157,10 @@ export default function About() {
               <div className="space-y-1">
                 <span className="text-xs text-slate-500 font-mono">EMAIL</span>
                 <a 
-                  href="mailto:AsifRaza7997@gmail.com" 
+                  href="mailto:razaasif7997@gmail.com" 
                   className="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors block truncate"
                 >
-                  AsifRaza7997@gmail.com
+                  razaasif7997@gmail.com
                 </a>
               </div>
             </div>
@@ -177,7 +195,7 @@ export default function About() {
                     aria-controls={`panel-${tab.id}`}
                     tabIndex={isActive ? 0 : -1}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`py-3 px-6 text-sm font-semibold border-b-2 transition-all duration-300 capitalize flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                    className={`py-3 px-6 text-sm font-semibold border-b-2 transition-all duration-300 capitalize shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                       isActive 
                         ? 'border-cyan-400 text-white font-bold' 
                         : 'border-transparent text-slate-400 hover:text-slate-200'
@@ -190,7 +208,7 @@ export default function About() {
             </div>
 
             {/* Dynamic Tab Contents */}
-            <div className="bg-slate-900/20 p-6 rounded-2xl border border-slate-900 min-h-[300px] flex flex-col justify-start">
+            <div className="bg-slate-900/20 p-6 rounded-2xl border border-slate-900 min-h-75 flex flex-col justify-start">
               
               {/* Journey Tab */}
               <div
@@ -203,9 +221,9 @@ export default function About() {
                 {JOURNEY_TIMELINE.map((item, idx) => (
                   <div key={idx} className="flex gap-4 relative group">
                     {idx !== JOURNEY_TIMELINE.length - 1 && (
-                      <div className="absolute left-6 top-8 bottom-[-24px] w-0.5 bg-slate-800"></div>
+                      <div className="absolute left-6 top-8 -bottom-6 w-0.5 bg-slate-800"></div>
                     )}
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-cyan-400/50 flex items-center justify-center text-cyan-400 text-sm transition-all duration-300">
+                    <div className="shrink-0 w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-cyan-400/50 flex items-center justify-center text-cyan-400 text-sm transition-all duration-300">
                       <i className={`fas ${item.icon}`} aria-hidden="true"></i>
                     </div>
                     <div className="space-y-1">
@@ -245,7 +263,7 @@ export default function About() {
               >
                 {GOALS_LIST.map((goal, idx) => (
                   <div key={idx} className="flex gap-3 items-start">
-                    <div className="w-5 h-5 rounded-full bg-cyan-400/10 text-cyan-400 flex items-center justify-center mt-0.5 flex-shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-cyan-400/10 text-cyan-400 flex items-center justify-center mt-0.5 shrink-0">
                       <i className="fas fa-check text-[10px]" aria-hidden="true"></i>
                     </div>
                     <div>
