@@ -625,75 +625,88 @@ export default function Contact() {
               >
 
                 <a
-                  href="https://github.com/officework9089-cpu"
+                  href="https://github.com/Asif7997"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="GitHub"
                   className="
-                    w-10
-                    h-10
-                    rounded-xl
-                    bg-slate-950
-                    border
-                    border-slate-800
-                    hover:border-cyan-500/35
-                    text-slate-400
-                    hover:text-white
-                    flex
-                    items-center
-                    justify-center
-                    transition-all
-                    duration-300
-                  "
+    w-10
+    h-10
+    rounded-xl
+    bg-slate-950
+    border
+    border-slate-800
+    text-slate-400
+    flex
+    items-center
+    justify-center
+    transition-all
+    duration-300
+    hover:bg-slate-800
+    hover:border-slate-500
+    hover:text-white
+    hover:scale-110
+    hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]
+  "
                 >
-                  <i className="fab fa-github" />
+                  <i className="fab fa-github text-lg" aria-hidden="true" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/asifraza7997"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  className="
+    w-10
+    h-10
+    rounded-xl
+    bg-slate-950
+    border
+    border-slate-800
+    text-slate-400
+    flex
+    items-center
+    justify-center
+    transition-all
+    duration-300
+    hover:bg-blue-600
+    hover:border-blue-400
+    hover:text-white
+    hover:scale-110
+    hover:shadow-[0_0_20px_rgba(37,99,235,0.45)]
+  "
+                >
+                  <i className="fab fa-linkedin-in text-lg" aria-hidden="true" />
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/razaasif/"
+                  href=""
                   target="_blank"
                   rel="noreferrer"
                   className="
-                    w-10
-                    h-10
-                    rounded-xl
-                    bg-slate-950
-                    border
-                    border-slate-800
-                    hover:border-cyan-500/35
-                    text-slate-400
-                    hover:text-white
-                    flex
-                    items-center
-                    justify-center
-                    transition-all
-                    duration-300
-                  "
+    w-10
+    h-10
+    rounded-xl
+    bg-slate-950
+    border
+    border-slate-800
+    text-slate-400
+    flex
+    items-center
+    justify-center
+    transition-all
+    duration-300
+    hover:bg-linear-to-br
+    hover:from-purple-600
+    hover:via-pink-500
+    hover:to-orange-400
+    hover:border-pink-400/50
+    hover:text-white
+    hover:scale-90
+    hover:shadow-[0_0_20px_rgba(236,72,153,0.4)]
+  "
                 >
-                  <i className="fab fa-linkedin-in" />
-                </a>
-
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="
-                    w-10
-                    h-10
-                    rounded-xl
-                    bg-slate-950
-                    border
-                    border-slate-800
-                    hover:border-cyan-500/35
-                    text-slate-400
-                    hover:text-white
-                    flex
-                    items-center
-                    justify-center
-                    transition-all
-                    duration-300
-                  "
-                >
-                  <i className="fab fa-twitter" />
+                  <i className="fab fa-instagram text-lg" aria-hidden="true"></i>
                 </a>
 
               </div>

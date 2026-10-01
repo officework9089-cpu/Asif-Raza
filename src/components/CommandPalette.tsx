@@ -74,7 +74,7 @@ export default function CommandPalette({ onNavigate, onToggleTheme }: CommandPal
 
   if (!isOpen) {
     return (
-      <div className="fixed bottom-4 left-4 z-40 hidden md:block">
+      <div className="fixed bottom-2 left-4 z-40 hidden md:block">
         <button
           onClick={() => setIsOpen(true)}
           className="flex items-center gap-2 px-3 py-2 bg-slate-900/80 backdrop-blur-md border border-slate-700/50 hover:border-cyan-500/50 text-slate-300 text-xs font-mono rounded-lg shadow-lg transition-all duration-300"

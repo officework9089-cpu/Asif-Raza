@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import asifAvatar from '../assets/images/asif_avatar_1781735629670.jpg';
-import cyberCode from '../assets/images/cyber_code_1781735646624.jpg';
-import neuralBrain from '../assets/images/neural_brain_1781735667609.jpg';
+import pic1 from '../assets/images/asif_avatar_1781735629670.jpg';
+import pic2 from '../assets/images/cyber_code_1781735646624.jpg';
+import pic3 from '../assets/images/neural_brain_1781735667609.jpg';
+import pic4 from '../assets/images/neural_brain_1781735667609.jpg';
+import pic5 from '../assets/images/neural_brain_1781735667609.jpg';
 
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
@@ -173,34 +175,34 @@ export default function Hero({ onNavigate, onOpenResume }: HeroProps) {
               <div className="cube-wrapper p-4 relative z-10">
                 <div className="floating-cube">
                   <div className="cube-face front">
-                    <img src={asifAvatar} alt="Asif Raza Profile Render" className="w-full h-full object-cover" />
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-cyan-400 border border-cyan-500/30">
+                    <img src={pic1} alt="Asif Raza Profile Render" className="w-full h-full object-cover" />
+                    {/* <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-cyan-400 border border-cyan-500/30">
                       FACE_01 // ACTIVE_DEV
-                    </div>
+                    </div> */}
                   </div>
                   <div className="cube-face back">
-                    <img src={cyberCode} alt="Cyberspace Code Pattern" className="w-full h-full object-cover" />
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-cyan-400 border border-cyan-500/30">
+                    <img src={pic2} alt="Cyberspace Code Pattern" className="w-full h-full object-cover" />
+                    {/* <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-cyan-400 border border-cyan-500/30">
                       FACE_02 // SYSTEM_NODE
-                    </div>
+                    </div> */}
                   </div>
                   <div className="cube-face right">
-                    <img src={neuralBrain} alt="Neural Network Prediction Brain" className="w-full h-full object-cover" />
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-cyan-400 border border-cyan-500/30">
+                    <img src={pic3} alt="Neural Network Prediction Brain" className="w-full h-full object-cover" />
+                    {/* <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-cyan-400 border border-cyan-500/30">
                       FACE_03 // INTELLIGENT_AI
-                    </div>
+                    </div>? */}
                   </div>
                   <div className="cube-face left">
-                    <img src={cyberCode} alt="Cyberspace Binary Pattern" className="w-full h-full object-cover" />
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-indigo-400 border border-indigo-500/30">
+                    <img src={pic4} alt="Cyberspace Binary Pattern" className="w-full h-full object-cover" />
+                    {/* <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-indigo-400 border border-indigo-500/30">
                       FACE_04 // SECURITY_CORE
-                    </div>
+                    </div> */}
                   </div>
                   <div className="cube-face bottom">
-                    <img src={neuralBrain} alt="Matrix Logic Systems" className="w-full h-full object-cover" />
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-indigo-400 border border-indigo-500/30">
+                    <img src={pic5} alt="Matrix Logic Systems" className="w-full h-full object-cover" />
+                    {/* <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 backdrop-blur-md rounded text-[9px] font-mono text-indigo-400 border border-indigo-500/30">
                       FACE_05 // CORE_DB
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
