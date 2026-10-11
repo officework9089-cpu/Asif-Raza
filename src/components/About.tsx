@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import asifAvatar from '../assets/images/about.png';
+import python from '../assets/images/python.jpeg';
+import aptech from '../assets/images/about.png';
+import Iqra from '../assets/images/about.png';
 
 // ============================================================
 // TYPES
@@ -19,6 +22,7 @@ interface CertificationItem {
   title: string;
   issuer: string;
   date: string;
+  image: string;
 }
 
 interface GoalItem {
@@ -69,16 +73,19 @@ const CERTIFICATIONS_LIST: CertificationItem[] = [
     title: 'Advanced Python Programming',
     issuer: 'Institute of Business Administration (NAVTTC)',
     date: '2025',
+    image: python,
   },
   {
     title: 'Advanced Diploma in Software Engineering',
     issuer: 'Aptech Learning',
     date: '2023',
+    image: aptech,
   },
   {
     title: 'Associate Degree Program in Cyber Security',
     issuer: 'IQRA University',
     date: '2025',
+    image: Iqra,
   },
 ];
 
@@ -109,6 +116,26 @@ const TABS: { id: TabType; label: string }[] = [
 
 export default function About() {
   const [activeTab, setActiveTab] = useState<TabType>('journey');
+  const [selectedCertificate, setSelectedCertificate] =
+    useState<CertificationItem | null>(null);
+
+  useEffect(() => {
+    if (!selectedCertificate) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedCertificate(null);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedCertificate]);
 
   return (
     <section
@@ -493,9 +520,12 @@ export default function About() {
                 className="grid grid-cols-1 gap-4 md:grid-cols-2 animate-fadeIn"
               >
                 {CERTIFICATIONS_LIST.map((cert, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/70 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-cyan-400/50 hover:shadow-[0_0_35px_rgba(34,211,238,0.12)]"
+                  <button
+                    type="button"
+                    key={cert.title}
+                    onClick={() => setSelectedCertificate(cert)}
+                    aria-label={`View certificate: ${cert.title}`}
+                    className="group relative w-full cursor-pointer overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/70 p-5 text-left transition-all duration-500 hover:-translate-y-1 hover:border-cyan-400/50 hover:shadow-[0_0_35px_rgba(34,211,238,0.12)] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                   >
                     {/* Glow */}
                     <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-cyan-500/[0.07] blur-3xl transition-all duration-500 group-hover:bg-cyan-400/[0.16]" />
@@ -515,7 +545,7 @@ export default function About() {
                         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
 
                         <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-400">
-                          Certified // {cert.date}
+                          Certified : {cert.date}
                         </span>
                       </div>
 
@@ -528,9 +558,14 @@ export default function About() {
                       </p>
                     </div>
 
+                    <span className="relative z-10 mt-4 inline-flex items-center gap-2 text-xs font-semibold text-cyan-400">
+                      <i className="fas fa-eye" aria-hidden="true" />
+                      View certificate
+                    </span>
+
                     {/* Energy bar */}
                     <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 transition-all duration-700 group-hover:w-full" />
-                  </div>
+                  </button>
                 ))}
               </div>
 
@@ -586,11 +621,6 @@ export default function About() {
                           {goal.desc}
                         </p>
                       </div>
-
-                      {/* Arrow */}
-                      <div className="mt-1 hidden text-lg text-slate-700 transition-all duration-300 group-hover:translate-x-1 group-hover:text-cyan-400 sm:block">
-                        →
-                      </div>
                     </div>
 
                     {/* Energy/progress line */}
@@ -605,6 +635,83 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      {/* Certificate image modal */}
+      {selectedCertificate && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md sm:p-8"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              setSelectedCertificate(null);
+            }
+          }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedCertificate.title}
+            className="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl shadow-cyan-950/30"
+          >
+            <div className="flex items-center justify-between gap-4 border-b border-slate-800 px-4 py-3 sm:px-6">
+              <div className="min-w-0">
+                <h3 className="truncate text-sm font-bold text-white sm:text-base">
+                  {selectedCertificate.title}
+                </h3>
+                <p className="mt-1 truncate text-xs text-slate-400">
+                  {selectedCertificate.issuer} · {selectedCertificate.date}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setSelectedCertificate(null)}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-700 text-slate-300 transition hover:border-cyan-400 hover:text-cyan-300"
+                aria-label="Close certificate preview"
+              >
+                <i className="fas fa-times" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="flex min-h-0 flex-1 items-center justify-center overflow-auto bg-slate-900/70 p-3 sm:p-6">
+              <img
+                src={selectedCertificate.image}
+                alt={`${selectedCertificate.title} certificate`}
+                className="max-h-[72vh] max-w-full rounded-lg object-contain shadow-xl"
+                onError={(event) => {
+                  event.currentTarget.style.display = 'none';
+                  const fallback = event.currentTarget.nextElementSibling;
+                  if (fallback instanceof HTMLElement) {
+                    fallback.style.display = 'flex';
+                  }
+                }}
+              />
+              <div
+                className="hidden min-h-48 flex-col items-center justify-center gap-3 px-6 text-center text-slate-300"
+                role="status"
+              >
+                <i className="fas fa-image text-3xl text-cyan-400" aria-hidden="true" />
+                <p className="font-semibold">Certificate image not found</p>
+                <p className="max-w-md text-sm text-slate-400">
+                  Add the image at: public{selectedCertificate.image}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex justify-end border-t border-slate-800 px-4 py-3">
+              <a
+                href={selectedCertificate.image}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-4 py-2 text-xs font-bold text-white transition hover:bg-cyan-400"
+              >
+                <i className="fas fa-external-link-alt" aria-hidden="true" />
+                Open image in new tab
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

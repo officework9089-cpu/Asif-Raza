@@ -54,7 +54,7 @@ export default function Hero({ onNavigate, onOpenResume }: HeroProps) {
   const stats = [
     { value: '60+', label: 'Projects Completed' },
     { value: '2+', label: 'Years Experience' },
-    { value: '100%', label: 'Positive Feedback' },
+    { value: '80%', label: 'Positive Feedback' },
     { value: '24/7', label: 'Architecture Support' },
   ];
 

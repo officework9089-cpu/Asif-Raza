@@ -85,15 +85,15 @@ export default function Footer({ onNavigate }: FooterProps) {
         className="
           pointer-events-none
           absolute
-          bottom-[-120px]
+          -bottom-30
           left-1/2
           -translate-x-1/2
           w-[320px]
-          sm:w-[600px]
-          lg:w-[850px]
-          h-[260px]
+          sm:w-150
+          lg:w-212.5
+          h-65
           rounded-full
-          bg-gradient-to-r
+          bg-linear-to-r
           from-cyan-500/10
           via-indigo-500/10
           to-purple-500/10
@@ -107,7 +107,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           pointer-events-none
           absolute
           top-0
-          right-[-80px]
+          -right-20
           w-64
           h-64
           rounded-full
@@ -144,7 +144,7 @@ export default function Footer({ onNavigate }: FooterProps) {
       /> */}
 
       {/* Top scan line */}
-      <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
+      <div className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-cyan-400/60 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -468,7 +468,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </span>
 
               <a
-                href="tel:+923102388463"
+                href="tel:+923252249291"
                 className="
                   mt-1.5
                   inline-flex
@@ -482,7 +482,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 "
               >
                 <i className="fas fa-phone text-[9px]" />
-                +92 310 23 88 463
+                +92 325 22 49 291
               </a>
             </div>
           </div>
@@ -599,7 +599,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             absolute
             -inset-px
             rounded-xl
-            bg-gradient-to-r
+            bg-linear-to-r
             from-cyan-500/20
             to-indigo-500/20
             opacity-0

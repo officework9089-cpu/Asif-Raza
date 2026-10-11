@@ -523,7 +523,7 @@ export default function Contact() {
                       items-center
                       justify-center
                       text-sm
-                      flex-shrink-0
+                      shrink-0
                     "
                   >
                     <i className="fas fa-phone-alt" />
@@ -544,7 +544,7 @@ export default function Contact() {
                     </span>
 
                     <a
-                      href="tel:+923102388463"
+                      href="tel:+923252249291"
                       className="
                         text-sm
                         font-semibold
@@ -553,7 +553,7 @@ export default function Contact() {
                         transition-colors
                       "
                     >
-                      +92 310 2388463
+                      +92 325 2249291
                     </a>
                   </div>
 
@@ -576,7 +576,7 @@ export default function Contact() {
                       items-center
                       justify-center
                       text-sm
-                      flex-shrink-0
+                      shrink-0
                     "
                   >
                     <i className="fas fa-map-marker-alt" />
@@ -1102,7 +1102,7 @@ export default function Contact() {
                     overflow-hidden
                     w-full
                     py-3.5
-                    bg-gradient-to-r
+                    bg-linear-to-r
                     from-cyan-500
                     via-blue-500
                     to-indigo-500
@@ -1138,7 +1138,7 @@ export default function Contact() {
                           group-hover:translate-x-full
                           transition-transform
                           duration-700
-                          bg-gradient-to-r
+                          bg-linear-to-r
                           from-transparent
                           via-white/20
                           to-transparent
@@ -1205,7 +1205,7 @@ export default function Contact() {
                   </span>
 
                   <a
-                    href="https://wa.me/923102388463?text=Hi%20Asif,%20I%20just%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project!"
+                    href="https://wa.me/923252249291?text=Hi%20Asif,%20I%20just%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project!"
                     target="_blank"
                     rel="noreferrer"
                     className="
