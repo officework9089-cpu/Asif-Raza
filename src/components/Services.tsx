@@ -143,7 +143,7 @@ export default function Services() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-sans tracking-tight">
             Consultative{' '}
-            <span className="bg-gradient-to-r from-cyan-400 to-indigo-500 bg-clip-text text-transparent font-extrabold">
+            <span className="bg-linear-to-r from-cyan-400 to-indigo-500 bg-clip-text text-transparent font-extrabold">
               Services
             </span>
           </h2>
@@ -416,7 +416,7 @@ export default function Services() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full py-3 bg-gradient-to-r from-cyan-500 to-indigo-500 hover:opacity-95 text-white text-xs font-bold rounded-xl shadow-lg transition-transform hover:scale-[1.01]"
+                    className="w-full py-3 bg-linear-to-r from-cyan-500 to-indigo-500 hover:opacity-95 text-white text-xs font-bold rounded-xl shadow-lg transition-transform hover:scale-[1.01]"
                   >
                     Load & Export Configuration to Contact Form
                   </button>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import asifAvatar from '../assets/images/about.png';
 import python from '../assets/images/python.jpeg';
-import aptech from '../assets/images/about.png';
+import aptech from '../assets/images/aptech.jpeg';
 import Iqra from '../assets/images/about.png';
 
 // ============================================================
@@ -639,7 +639,7 @@ export default function About() {
       {/* Certificate image modal */}
       {selectedCertificate && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md sm:p-8"
+          className="fixed inset-0 z-100 mt-15 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md sm:p-8"
           role="presentation"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) {
@@ -651,7 +651,7 @@ export default function About() {
             role="dialog"
             aria-modal="true"
             aria-label={selectedCertificate.title}
-            className="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl shadow-cyan-950/30"
+            className="relative flex max-h-full w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl shadow-cyan-950/30"
           >
             <div className="flex items-center justify-between gap-4 border-b border-slate-800 px-4 py-3 sm:px-6">
               <div className="min-w-0">
@@ -673,11 +673,11 @@ export default function About() {
               </button>
             </div>
 
-            <div className="flex min-h-0 flex-1 items-center justify-center overflow-auto bg-slate-900/70 p-3 sm:p-6">
+            <div className="flex min-h-0 flex-1 items-center justify-center bg-slate-900/70 p-3 sm:p-6">
               <img
                 src={selectedCertificate.image}
                 alt={`${selectedCertificate.title} certificate`}
-                className="max-h-[72vh] max-w-full rounded-lg object-contain shadow-xl"
+                className="max-h-[60vh] max-w-full rounded-lg object-cover shadow-xl"
                 onError={(event) => {
                   event.currentTarget.style.display = 'none';
                   const fallback = event.currentTarget.nextElementSibling;
