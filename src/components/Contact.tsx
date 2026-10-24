@@ -500,7 +500,7 @@ export default function Contact() {
                         transition-colors
                       "
                     >
-                      RazaAsif7997@gmail.com
+                      razaasif7997@gmail.com
                     </a>
                   </div>
 
@@ -540,7 +540,7 @@ export default function Contact() {
                         font-bold
                       "
                     >
-                      Direct Hotline
+                      Direct Whatsapp / Call
                     </span>
 
                     <a
@@ -614,102 +614,103 @@ export default function Contact() {
 
               {/* SOCIALS */}
 
-              <div
-                className="
-                  pt-6
-                  border-t
-                  border-slate-900/60
-                  flex
-                  gap-2
-                "
-              >
+{/* Social Links — Top of the section */}
+<div className="border-t border-slate-800/70 pt-5">
+  <div className="flex flex-col items-start gap-3">
 
-                <a
-                  href="https://github.com/Asif7997"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="GitHub"
-                  className="
-    w-10
-    h-10
-    rounded-xl
-    bg-slate-950
-    border
-    border-slate-800
-    text-slate-400
-    flex
-    items-center
-    justify-center
-    transition-all
-    duration-300
-    hover:bg-slate-800
-    hover:border-slate-500
-    hover:text-white
-    hover:scale-110
-    hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]
-  "
-                >
-                  <i className="fab fa-github text-lg" aria-hidden="true" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/asifraza7997"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="LinkedIn"
-                  className="
-    w-10
-    h-10
-    rounded-xl
-    bg-slate-950
-    border
-    border-slate-800
-    text-slate-400
-    flex
-    items-center
-    justify-center
-    transition-all
-    duration-300
-    hover:bg-blue-600
-    hover:border-blue-400
-    hover:text-white
-    hover:scale-110
-    hover:shadow-[0_0_20px_rgba(37,99,235,0.45)]
-  "
-                >
-                  <i className="fab fa-linkedin-in text-lg" aria-hidden="true" />
-                </a>
+    {/* Heading above icons */}
+    <div className="flex items-center gap-2.5">
+      <span className="h-1 w-6 rounded-md bg-linear-to-r from-blue-500 to-violet-500" />
+      <span className="text-xs font-bold uppercase tracking-[0.22em] text-slate-400">
+        Socials
+      </span>
+    </div>
 
-                <a
-                  href=""
-                  target="_blank"
-                  rel="noreferrer"
-                  className="
-    w-10
-    h-10
-    rounded-xl
-    bg-slate-950
-    border
-    border-slate-800
-    text-slate-400
-    flex
-    items-center
-    justify-center
-    transition-all
-    duration-300
-    hover:bg-linear-to-br
-    hover:from-purple-600
-    hover:via-pink-500
-    hover:to-orange-400
-    hover:border-pink-400/50
-    hover:text-white
-    hover:scale-90
-    hover:shadow-[0_0_20px_rgba(236,72,153,0.4)]
-  "
-                >
-                  <i className="fab fa-instagram text-lg" aria-hidden="true"></i>
-                </a>
+    {/* Social Icons */}
+    <div className="flex items-center gap-3">
 
-              </div>
+      {/* GitHub */}
+      <a
+        href="https://github.com/Asif7997"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit GitHub profile"
+        title="GitHub"
+        className="
+          group flex h-11 w-11 items-center justify-center
+          rounded-xl border border-slate-700/70 bg-slate-900/80
+          text-slate-300 shadow-sm
+          transition-all duration-300 ease-out
+          hover:-translate-y-1 hover:border-slate-500
+          hover:bg-slate-800 hover:text-white hover:shadow-lg
+          focus-visible:outline-none focus-visible:ring-2
+          focus-visible:ring-slate-400 focus-visible:ring-offset-2
+          focus-visible:ring-offset-slate-950
+        "
+      >
+        <i
+          className="fab fa-github text-xl transition-transform duration-300 group-hover:scale-110"
+          aria-hidden="true"
+        />
+      </a>
+
+      {/* LinkedIn */}
+      <a
+        href="https://www.linkedin.com/in/asifraza7997"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit LinkedIn profile"
+        title="LinkedIn"
+        className="
+          group flex h-11 w-11 items-center justify-center
+          rounded-xl border border-slate-700/70 bg-slate-900/80
+          text-slate-300 shadow-sm
+          transition-all duration-300 ease-out
+          hover:-translate-y-1 hover:border-blue-400
+          hover:bg-blue-600 hover:text-white
+          hover:shadow-[0_8px_24px_rgba(37,99,235,0.25)]
+          focus-visible:outline-none focus-visible:ring-2
+          focus-visible:ring-blue-500 focus-visible:ring-offset-2
+          focus-visible:ring-offset-slate-950
+        "
+      >
+        <i
+          className="fab fa-linkedin-in text-lg transition-transform duration-300 group-hover:scale-110"
+          aria-hidden="true"
+        />
+      </a>
+
+      {/* Instagram */}
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit Instagram profile"
+        title="Instagram"
+        className="
+          group flex h-11 w-11 items-center justify-center
+          rounded-xl border border-slate-700/70 bg-slate-900/80
+          text-slate-300 shadow-sm
+          transition-all duration-300 ease-out
+          hover:-translate-y-1 hover:border-pink-400/70
+          hover:bg-gradient-to-br hover:from-purple-600
+          hover:via-pink-500 hover:to-orange-400
+          hover:text-white
+          hover:shadow-[0_8px_24px_rgba(236,72,153,0.22)]
+          focus-visible:outline-none focus-visible:ring-2
+          focus-visible:ring-pink-400 focus-visible:ring-offset-2
+          focus-visible:ring-offset-slate-950
+        "
+      >
+        <i
+          className="fab fa-instagram text-xl transition-transform duration-300 group-hover:scale-110"
+          aria-hidden="true"
+        />
+      </a>
+
+    </div>
+  </div>
+</div>
 
             </div>
           </div>
@@ -861,7 +862,7 @@ export default function Contact() {
                       type="text"
                       required
                       autoComplete="name"
-                      placeholder="e.g. Jenkins Alvi"
+                      placeholder="e.g. Asif Raza"
                       className="
                         w-full
                         px-4
@@ -917,7 +918,7 @@ export default function Contact() {
                       type="email"
                       required
                       autoComplete="email"
-                      placeholder="e.g. client@brand.com"
+                      placeholder="e.g. AsifRAza@brand.com"
                       className="
                         w-full
                         px-4

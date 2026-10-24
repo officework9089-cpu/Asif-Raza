@@ -152,7 +152,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             FOOTER HEADER / SYSTEM STATUS
         ========================================================= */}
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
+        {/* <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
           
           <div className="flex items-center gap-3">
             <span className="relative flex h-2.5 w-2.5">
@@ -165,7 +165,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             </span>
           </div>
 
-        </div>
+        </div> */}
 
         {/* =========================================================
             MAIN FOOTER GRID
@@ -223,8 +223,8 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <div
                   className="
                     relative
-                    w-10
-                    h-10
+                    w-24
+                    h-24
                     rounded-xl
                     bg-slate-950
                     border
@@ -271,7 +271,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                   Asif Raza
                 </span>
 
-                <span className="block text-[9px] font-mono uppercase tracking-[0.2em] text-slate-600 group-hover:text-slate-500">
+                <span className="block text-[9px] font-mono uppercase tracking-[0.2em] text-slate-500 group-hover:text-white transition-colors duration-300">
                   Full-Stack Architect
                 </span>
               </div>
@@ -317,15 +317,15 @@ export default function Footer({ onNavigate }: FooterProps) {
           ======================================================= */}
 
           <div className="lg:col-span-4">
-            {/* <div className="flex items-center gap-2 mb-5">
-              <span className="text-[10px] font-mono text-cyan-400">
+            <div className="flex items-center gap-2 mb-5 ">
+              {/* <span className="text-[10px] font-mono text-cyan-400">
                 01.
-              </span>
+              </span> */}
 
-              <p className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-300">
+              <p className="text-s font-mono font-bold uppercase tracking-[0.2em] text-slate-300">
                 Quick Navigation
               </p>
-            </div> */}
+            </div>
 
             <div className="grid grid-cols-2 gap-x-5 gap-y-1">
               {navLinks.map((item) => (
@@ -341,8 +341,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                     py-2
                     text-left
                     text-xs
+                    font-serif
                     font-semibold
-                    text-slate-500
+                    text-White
                     hover:text-cyan-400
                     transition-all
                     duration-300
@@ -464,7 +465,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               "
             >
               <span className="block text-[9px] uppercase tracking-[0.2em] font-mono text-slate-600">
-                Direct Contact
+                Direct Whatapp / Call
               </span>
 
               <a

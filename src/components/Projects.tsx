@@ -122,42 +122,10 @@ function ProjectCard({
       </div>
 
       {/* Actions */}
-      <div className="mt-auto flex items-center justify-between gap-3 border-t border-slate-900/60 p-4 sm:p-5 md:p-6 md:pt-4">
-        <button
-          type="button"
-          onClick={() => {
-            if (isDragging?.current) return;
-            onDetails(project);
-          }}
-          className="
-            inline-flex items-center gap-1.5 rounded-lg border border-slate-800
-            bg-slate-900 px-3 py-2 text-xs font-semibold text-cyan-400
-            transition-colors hover:bg-slate-800 hover:text-cyan-300
-          "
-        >
-          Details & Results
-          <i className="fas fa-arrow-up-right-from-square text-[9px]" />
-        </button>
-
+      <div className="mt-auto flex items-center justify-end gap-3 border-t border-slate-900/60 p-4 sm:p-5 md:p-6 md:pt-4">
+        
         <div className="flex shrink-0 gap-2">
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => {
-                if (isDragging?.current) e.preventDefault();
-              }}
-              className="
-                rounded-lg bg-slate-950 p-2 text-sm text-slate-400
-                transition-colors hover:bg-slate-900 hover:text-white
-              "
-              title="View GitHub Repository"
-              aria-label={`View ${project.title} GitHub repository`}
-            >
-              <i className="fab fa-github" />
-            </a>
-          )}
+        
 
           {project.demo && (
             <a
@@ -168,13 +136,14 @@ function ProjectCard({
                 if (isDragging?.current) e.preventDefault();
               }}
               className="
-                rounded-lg bg-cyan-500/10 p-2 text-sm text-cyan-400
+                rounded-lg bg-slate-900 p-2 text-sm text-cyan-400 loose flex items-center gap-2 font-semibold
                 transition-colors hover:bg-cyan-500/40 hover:text-white
               "
               title="View Live Demo"
               aria-label={`View ${project.title} live demo`}
             >
-              <i className="fas fa-globe" />
+              View Demo <i className="fas fa-external-link-alt" />
+              {/* <i className="fas fa-globe" /> */}
             </a>
           )}
         </div>

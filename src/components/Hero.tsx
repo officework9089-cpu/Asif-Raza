@@ -169,7 +169,7 @@ export default function Hero({ onNavigate, onOpenResume }: HeroProps) {
             <div className="relative w-full max-w-xs sm:max-w-sm">
               
               {/* Outer Ambient Glowing Aura */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-linear-to-tr from-cyan-500/20 via-sky-500/10 to-indigo-500/20 blur-3xl animate-pulse" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-80 sm:h-80 rounded-md bg-linear-to-tr from-cyan-500/20 via-sky-500/10 to-indigo-500/20 blur-3xl animate-pulse" />
 
               {/* 3D Rotating Cube Container */}
               <div className="cube-wrapper p-4 relative z-10">
