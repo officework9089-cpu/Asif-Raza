@@ -469,7 +469,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </span>
 
               <a
-                href="tel:+923252249291"
+                href="whatsapp://send?phone=923252249291"
                 className="
                   mt-1.5
                   inline-flex

@@ -544,7 +544,7 @@ export default function Contact() {
                     </span>
 
                     <a
-                      href="tel:+923252249291"
+                      href="whatsapp://send?phone=923252249291"
                       className="
                         text-sm
                         font-semibold
@@ -693,7 +693,7 @@ export default function Contact() {
           text-slate-300 shadow-sm
           transition-all duration-300 ease-out
           hover:-translate-y-1 hover:border-pink-400/70
-          hover:bg-gradient-to-br hover:from-purple-600
+          hover:bg-linear-to-br hover:from-purple-600
           hover:via-pink-500 hover:to-orange-400
           hover:text-white
           hover:shadow-[0_8px_24px_rgba(236,72,153,0.22)]

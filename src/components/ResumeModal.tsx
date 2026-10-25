@@ -302,7 +302,7 @@ export default function ResumeModal({
                   aria-hidden="true"
                 />
                 <a
-                  href="tel:+923102388463"
+                  href="whatsapp://send?phone=923102388463"
                   className="hover:underline"
                 >
                   +92-310-2388463

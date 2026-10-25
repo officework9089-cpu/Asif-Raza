@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import logo from '@/assets/images/logo.jpg';
+import { SunMoonThemeToggle } from "./ui/sun-moon-theme-toggle";
 
 interface NavBarProps {
   onNavigate: (sectionId: string) => void;
@@ -58,17 +59,16 @@ export default function NavBar({
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'py-3 bg-slate-950/80 backdrop-blur-2xl border-b border-slate-800/60 shadow-xl shadow-cyan-950/10'
-            : 'py-5 bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+          ? 'py-3 bg-slate-950/80 backdrop-blur-2xl border-b border-slate-800/60 shadow-xl shadow-cyan-950/10'
+          : 'py-5 bg-transparent'
+          }`}
       >
         {/* Ambient Top Glow Layer */}
         <div className="absolute inset-0 bg-linear-to-r from-cyan-500/10 via-indigo-500/10 to-purple-500/10 opacity-30 pointer-events-none blur-xl" />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative z-10">
-          
+
           {/* Brand / Logo */}
           <button
             onClick={() => handleLinkClick('home')}
@@ -103,11 +103,10 @@ export default function NavBar({
                 <button
                   key={item.id}
                   onClick={() => handleLinkClick(item.id)}
-                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 touch-manipulation ${
-                    isActive
-                      ? 'text-white font-bold'
-                      : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/40'
-                  }`}
+                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 touch-manipulation ${isActive
+                    ? 'text-white font-bold'
+                    : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/40'
+                    }`}
                 >
                   {isActive && (
                     <span className="absolute inset-0 bg-linear-to-r from-cyan-500 to-indigo-500 rounded-full shadow-lg shadow-cyan-500/25 -z-10 animate-fade-in" />
@@ -120,21 +119,15 @@ export default function NavBar({
 
           {/* Action Control Panel */}
           <div className="flex items-center gap-2 sm:gap-3">
-            
-            {/* Theme Toggle Button */}
-            <button
-              onClick={onToggleTheme}
-              aria-label="Toggle visual room theme"
-              className="relative group p-2.5 sm:p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 text-slate-400 hover:text-white transition-all duration-300 shadow-md touch-manipulation active:scale-95"
-            >
-              <div className="absolute inset-0 rounded-xl bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-              {theme === 'dark' ? (
-                <i className="fas fa-sun text-sm text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
-              ) : (
-                <i className="fas fa-moon text-sm text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]" />
-              )}
-            </button>
 
+            {/* 3D Animated Theme Toggle */}
+            <SunMoonThemeToggle
+              isDark={theme === "dark"}
+              onToggle={onToggleTheme}
+              size={46}
+              duration={700}
+              sky={true}
+            />
             {/* Direct Hire CTA */}
             <button
               onClick={() => handleLinkClick('contact')}
@@ -181,7 +174,7 @@ export default function NavBar({
       {/* Full-Screen Mobile Drawer Overlay */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 xl:hidden bg-slate-950/95 backdrop-blur-2xl flex flex-col justify-between pt-28 pb-8 px-6 animate-fade-in overflow-y-auto">
-          
+
           {/* Ambient Decorative Background Effects */}
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-10 right-10 w-60 h-60 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -198,11 +191,10 @@ export default function NavBar({
                 <button
                   key={item.id}
                   onClick={() => handleLinkClick(item.id)}
-                  className={`w-full flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-bold transition-all duration-300 touch-manipulation ${
-                    isActive
-                      ? 'bg-linear-to-r from-cyan-500/15 via-indigo-500/15 to-transparent border border-cyan-500/30 text-white shadow-lg shadow-cyan-500/5'
-                      : 'bg-slate-900/40 border border-slate-800/50 text-slate-400 hover:bg-slate-800/60 hover:text-white'
-                  }`}
+                  className={`w-full flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-bold transition-all duration-300 touch-manipulation ${isActive
+                    ? 'bg-linear-to-r from-cyan-500/15 via-indigo-500/15 to-transparent border border-cyan-500/30 text-white shadow-lg shadow-cyan-500/5'
+                    : 'bg-slate-900/40 border border-slate-800/50 text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-xs text-slate-600">
@@ -225,7 +217,7 @@ export default function NavBar({
           <div className="pt-6 border-t border-slate-900 max-w-md mx-auto w-full relative z-10 space-y-3">
             <button
               onClick={() => handleLinkClick('contact')}
-              className="w-full py-3.5 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-cyan-500/25 active:scale-95 transition-transform"
+              className="w-full py-3.5 bg-liner-to-r from-cyan-500 via-indigo-500 to-purple-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-cyan-500/25 active:scale-95 transition-transform"
             >
               <i className="fas fa-paper-plane mr-2" /> Start a Project / Hire
             </button>

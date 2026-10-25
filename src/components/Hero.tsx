@@ -93,7 +93,7 @@ export default function Hero({ onNavigate, onOpenResume }: HeroProps) {
             </div> */}
 
             <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-none text-white">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black  tracking-tight leading-none text-white  ">
                 Asif Raza <br />
                 <span className="bg-linear-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
                   Full Stack Engineer & <br />Web Systems Architect
