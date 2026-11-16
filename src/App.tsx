@@ -14,6 +14,7 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
+import logo from './assets/images/logo.jpg';
 
 export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
@@ -92,14 +93,14 @@ export default function App() {
           const visibleTop = Math.max(0, rect.top);
           const visibleBottom = Math.min(window.innerHeight, rect.bottom);
           const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-          
+
           if (visibleHeight > maxVisibleHeight) {
             maxVisibleHeight = visibleHeight;
             currentSection = section;
           }
         }
       }
-      
+
       if (currentSection) {
         setActiveSection(currentSection);
       }
@@ -124,34 +125,48 @@ export default function App() {
   if (loading) {
     return (
       <div className="fixed inset-0 z-50 bg-slate-950 flex flex-col items-center justify-center space-y-6 text-center">
-        
+
         {/* Glowing visual backdrop */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-500/10 rounded-full filter blur-[50px]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cyan-500/10 rounded-full filter blur-[50px]">
+
+        </div>
 
         <div className="space-y-4 z-10">
           {/* Spinner element */}
-          <div className="relative w-16 h-16 mx-auto">
-            <div className="absolute inset-0 rounded-full border-4 border-slate-900"></div>
-            <div className="absolute inset-0 rounded-full border-4 border-t-cyan-400 border-r-indigo-500 animate-spin"></div>
+          <p className="text-white font-mono font-bold animate-pulse" 
+          style={{
+            fontSize: '2.5rem',
+            textAlign: 'center',
+            fontFamily: "'Amiri', 'Noto Naskh Arabic', serif",
+          }}>
+          &#xFDFD;</p>
+
+
+
+        <div className="relative w-28 h-28 mx-auto">
+          <div className="absolute inset-0 rounded-full border-4 border-slate-900">
+            <img src={logo} alt="Asif Raza" className="w-full h-full object-cover rounded-full" />
           </div>
-          
-          <div className="space-y-1">
-            <h3 className="text-white font-mono text-xs uppercase tracking-widest font-bold">Asif Raza Matrix</h3>
-            <p className="text-slate-400 font-mono text-[11px] h-4 animate-pulse">{loadStatus}</p>
+          <div className="absolute inset-0 rounded-full border-4 border-t-cyan-400 border-r-indigo-500 animate-spin">
           </div>
         </div>
 
+        <div className="space-y-1">
+          <h3 className="text-white font-mono text-xs uppercase tracking-widest font-bold">Asif Raza </h3>
+          <p className="text-slate-400 font-mono text-[11px] h-4 animate-pulse">{loadStatus}</p>
+        </div>
       </div>
+
+      </div >
     );
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      theme === 'dark' ? 'bg-[#050816] text-[#CBD5E1]' : 'bg-[#f8fafc] text-[#1e293b]'
-    }`}>
-      
+    <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-[#050816] text-[#CBD5E1]' : 'bg-[#f8fafc] text-[#1e293b]'
+      }`}>
+
       {/* Scroll Progress indicator line in header top */}
-      <div 
+      <div
         className="fixed top-0 left-0 h-1.5 bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500 z-50 transition-all duration-100 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
@@ -162,7 +177,7 @@ export default function App() {
       <div className="absolute bottom-[10%] left-[25%] w-[30vw] h-[30vw] rounded-full bg-teal-500/5 filter blur-[90px] pointer-events-none"></div>
 
       {/* Navigation Header */}
-      <NavBar 
+      <NavBar
         onNavigate={handleNavigate}
         activeSection={activeSection}
         theme={theme}
@@ -171,24 +186,24 @@ export default function App() {
 
       {/* Main Pages content wrappers */}
       <main className="relative z-10">
-        
+
         {/* Core Sections */}
         <Hero onNavigate={handleNavigate} onOpenResume={() => setIsResumeOpen(true)} />
-        
+
         <About />
-        
+
         <Skills />
-        
+
         <Projects />
-        
+
         <Experience />
-        
+
         <Services />
-        
+
         <Testimonials />
-        
+
         {/* <Blog /> */}
-        
+
         <Contact />
 
       </main>
@@ -197,9 +212,9 @@ export default function App() {
       <Footer onNavigate={handleNavigate} />
 
       {/* Vercel style accessibility Keyboard Command Palette shortcut menu (Trigger on Command+K) */}
-      <CommandPalette 
-        onNavigate={handleNavigate} 
-        onToggleTheme={handleToggleTheme} 
+      <CommandPalette
+        onNavigate={handleNavigate}
+        onToggleTheme={handleToggleTheme}
       />
 
       {/* Interactive Printable CV Viewer */}

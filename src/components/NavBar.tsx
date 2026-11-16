@@ -121,13 +121,13 @@ export default function NavBar({
           <div className="flex items-center gap-2 sm:gap-3">
 
             {/* 3D Animated Theme Toggle */}
-            <SunMoonThemeToggle
+            {/* <SunMoonThemeToggle
               isDark={theme === "dark"}
               onToggle={onToggleTheme}
               size={46}
               duration={700}
               sky={true}
-            />
+            /> */}
             {/* Direct Hire CTA */}
             <button
               onClick={() => handleLinkClick('contact')}
