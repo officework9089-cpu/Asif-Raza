@@ -1,6 +1,21 @@
 import { useState, useEffect } from 'react';
 import logo from '@/assets/images/logo.jpg';
 import { SunMoonThemeToggle } from "./ui/sun-moon-theme-toggle";
+import {
+  BottomNavigation,
+  BottomNavigationHighlight,
+  BottomNavigationHighlightItem,
+  BottomNavigationItem,
+  BottomNavigationLabel,
+} from "@animate-ui/react/primitives/bottom-navigation";
+
+import {
+  Home,
+  UserRound,
+  FolderKanban,
+  BriefcaseBusiness,
+  Mail,
+} from "lucide-react";
 
 interface NavBarProps {
   onNavigate: (sectionId: string) => void;
@@ -29,6 +44,21 @@ export default function NavBar({
     { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
   ];
+  const mobileNavItems = [
+    { value: "home", label: "Home", Icon: Home },
+    { value: "about", label: "About", Icon: UserRound },
+    { value: "projects", label: "Projects", Icon: FolderKanban },
+    { value: "services", label: "Services", Icon: BriefcaseBusiness },
+    { value: "contact", label: "Contact", Icon: Mail },
+  ];
+
+  const mobileActive =
+    mobileNavItems.find((item) => item.value === activeSection)?.value ?? "home";
+
+  const handleMobileNav = (value: string) => {
+    onNavigate(value);
+    setMobileMenuOpen(false);
+  };
 
   // Prevent background scrolling when mobile menu drawer is open
   useEffect(() => {
@@ -59,7 +89,7 @@ export default function NavBar({
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+        className={`sm:fixed top-0 left-0 right-0 z-50 transition-all duration-500  ${scrolled
           ? 'py-3 bg-slate-950/80 backdrop-blur-2xl border-b border-slate-800/60 shadow-xl shadow-cyan-950/10'
           : 'py-5 bg-transparent'
           }`}
@@ -229,6 +259,53 @@ export default function NavBar({
           </div>
         </div>
       )}
+
+      {/* Animated Mobile Bottom Navigation */}
+      {!mobileMenuOpen && (
+        <div className="pointer-events-none fixed inset-x-0 bottom-4 z-[60] flex justify-center px-3 xl:hidden">
+          <BottomNavigation
+            value={mobileActive}
+            onValueChange={handleMobileNav}
+            scrollBehavior="none"
+            aria-label="Mobile navigation"
+            className="pointer-events-auto flex w-full max-w-[440px] items-center justify-center"
+          >
+            <BottomNavigationHighlight className="absolute inset-x-0 inset-y-1 z-0 rounded-full bg-slate-900">
+              <ul className="flex w-full items-center justify-around rounded-full border border-cyan-500/20 bg-slate-950/90 px-1 py-1 shadow-2xl shadow-cyan-950/40 backdrop-blur-2xl">
+
+                {mobileNavItems.map(({ value, label, Icon }) => (
+                  <li key={value} className="flex-1">
+                    <BottomNavigationHighlightItem value={value}>
+                      <BottomNavigationItem value={value} asChild>
+                        <button
+                          type="button"
+                          aria-label={label}
+                          aria-current={
+                            mobileActive === value ? "page" : undefined
+                          }
+                          className="relative z-10 flex h-[3.75rem] w-full flex-col items-center justify-center gap-1 rounded-full text-slate-500 outline-none transition-colors hover:text-cyan-300 focus-visible:ring-2 focus-visible:ring-cyan-400 data-[state=active]:text-cyan-400"
+                        >
+                          <Icon
+                            size={21}
+                            strokeWidth={2}
+                            className="shrink-0"
+                          />
+
+                          <BottomNavigationLabel className="text-[10px] font-semibold leading-none">
+                            {label}
+                          </BottomNavigationLabel>
+                        </button>
+                      </BottomNavigationItem>
+                    </BottomNavigationHighlightItem>
+                  </li>
+                ))}
+
+              </ul>
+            </BottomNavigationHighlight>
+          </BottomNavigation>
+        </div>
+      )}
+
     </>
   );
 }
